@@ -1,0 +1,62 @@
+<% include ./partials/header.ejs %>
+<div class="main min-h-screen w-full bg-zinc-800 text-white p-1  ">
+
+    <form id="formupload" hidden action="/fileupload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image">
+    </form>
+
+
+    <div class="profiledets flex flex-col items-center mt-16   ">
+        <div class="relative">
+            <span id="uploadicon"
+                class=" w-8  h-8 bg-zinc-300 absolute bottom-0 right-0 cursor-pointer rounded-full flex items-center justify-center hover:bg-zinc-400">
+                <i class=" text-zinc-800 ri-pencil-fill "></i>
+            </span>
+            <div class="pimg h-32 w-32 bg-zinc-300 rounded-full overflow-hidden ">
+
+                <img class="h-full w-full object-cover" src="/images/uploads/<%= user.profileImage%>" >
+            </div>
+        </div>
+
+        <h1 class="text-2xl font-semibold mt-4"><%=user.name%></h1>
+        <h3 class="text-md font-medium  ">@<%=user.username%></h3>
+        <a href="/edit"
+            class="mt-3 px-6 py-2 bg-zinc-500 hover:bg-zinc-600 rounded-full text-xs font-semibold">Edit</a>
+        <a href="/add"><button class=" mt-3  px-8 py-2 bg-red-600 rounded-lg text-sm font-semibold hover:bg-red-700 capitalize">add
+            new post </button></a>
+
+    </div>
+
+    <div class="cards flex flex-wrap gap-10 px-10 mt-6 ">
+        <div class="card   ">
+            <div class="w-52 min-h-40 rounded-lg bg-zinc-300 overflow-hidden  ">
+                <img class="h-full w-full object-cover "
+                    src="/images/uploads/<%= user?.posts[0]?.image %>"
+                    alt="wrong">
+            </div>
+           <a href="/show/posts"class="block font-semibold text-xl mt-2 ">Your uploads Pins</a>
+            <div class="font-light text-sm  "><%= user.posts.length  %>Pins</div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script>
+document.querySelector('#uploadicon').addEventListener("click", function(){
+
+
+    document.querySelector("#formupload input").click();
+})
+document.querySelector("#formupload input").addEventListener("change", function(){
+    document.querySelector("#formupload").submit();
+})
+
+
+</script>
+
+
+
+<% include ./partials/footer.ejs %>

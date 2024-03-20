@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    
+<link rel="stylesheet" href="../stylesheets/style.css">
+  <title>Pinterest</title>
+  
+</head>
+<body>
+
+  <%if(navbar === true){%>
+    
+    <div id="navbar" class="w-full bg-zinc-800  py-5 flex justify-between items-center px-12 text-white 	   ">
+      <h3 class="cursor-pointer  text-lg ">Pinterest</h3>
+      <div class="flex gap-6 items-center">
+        <a class="text-lg" href="/profile">Profile</a>
+        <a class="text-lg"href="/feed">Feed</a>
+        <a href="/logout"><button class="px-2 rounded-xl py-1 bg-red-700 font-semibold hover:bg-red-800 ">Logout</button></a>
+      </div>
+    </div>
+    
+    <%}%>
+
+
